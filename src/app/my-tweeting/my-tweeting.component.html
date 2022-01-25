@@ -1,34 +1,54 @@
-<h4>trumps tweets</h4>
+<h4 class="text-center">trumps tweets</h4>
 
+<div class="container p-3 border">
 
-<div class="row">
-  <div class="col">
-    <label>Date</label>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="highlight">highlight tweet</label>
+        <input type="text" class="form-control" id="highlight"  placeholder="type word">
+      </div>
 
+    </div>
   </div>
-  <div class="col">
 
-    <label>Message</label>
+  <!--header-->
+  <div class="row p-2">
+    <div class="col">
+      <label>Date</label>
 
+    </div>
+    <div class="col">
+
+      <label>Message</label>
+
+    </div>
+    <div class="col">
+
+      <label>Likes</label>
+    </div>
   </div>
-  <div class="col">
 
-    <label>Likes</label>
-  </div>
+
+<div class="row" >
+  <label>test</label>
 </div>
 
-<div class="row" *ngFor="let tweet of datacollection index as i">
-  <div class="col">
-<label>{{tweet.date}}</label>
+  <!--collection of data-->
+  <div class="row p-2" *ngFor="let tweet of datacollection index as i" >
+    <div class="col">
+      <label>{{tweet.date}}</label>
 
+    </div>
+    <div class="col">
+
+      <label>{{tweet.text}}</label>
+
+    </div>
+    <div class="col">
+
+      <label>{{tweet.likes}}</label>
+    </div>
   </div>
-  <div class="col">
 
-    <label>{{tweet.text}}</label>
-
-  </div>
-  <div class="col">
-
-    <label>{{tweet.likes}}</label>
-  </div>
 </div>
