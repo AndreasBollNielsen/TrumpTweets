@@ -1,11 +1,15 @@
-<h3>my pipe assignment</h3>
+<h3 class="text-center">my pipe assignment</h3>
 
-<input [(ngModel)]="myvalue">
+<div class="container">
+  <input [(ngModel)]="myvalue">
 
-<h4>morse code:</h4>
-<label>{{myvalue|morse}}</label>
+  <h4>morse code:</h4>
+  <label>{{myvalue|morse}}</label>
 
-<h4>hash code:</h4>
-<label>{{myvalue|hashPipe}}</label>
+  <h4>hash code:</h4>
+  <label>{{myvalue|hashPipe}}</label>
 
-{{myvalue|hashPipe}}
+  {{myvalue|hashPipe}}
+</div>
+
+
