@@ -1,6 +1,6 @@
 export interface TweetModel {
 
   date: string;
-  likes: string;
+  likes: number;
   text: string;
 }

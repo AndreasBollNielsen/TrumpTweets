@@ -1,7 +1,33 @@
 .taggedTweet{
-  background-color: green;
+  background-color: rgb(0, 80, 0);
+  color: aliceblue;
 }
 
 .untaggedTweet{
-  background-color: red;
+  background-color: rgb(168, 1, 1);
+  color: aliceblue;
+}
+
+.taggedLikes{
+  background-color: rgb(7, 83, 146);
+  color: aliceblue;
+}
+
+.borderlines{
+  border-radius: 25px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: yellow;
+  box-shadow: 10px 10px 10px 10px grey;
+}
+
+.borderleft{
+  border-radius: 25px 0px 0px 25px;
+}
+.borderright{
+  border-radius: 0px 25px 25px 0px;
+}
+
+.shadow{
+  box-shadow: 10px 10px 10px 10px grey;
 }

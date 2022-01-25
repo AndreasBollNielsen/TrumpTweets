@@ -1,14 +1,33 @@
-<h4 class="text-center">trumps tweets</h4>
+<h4 class="text-center">Trump tweets</h4>
 
-<div class="container p-3 border">
 
+
+<div class="container p-3 border shadow">
   <div class="row">
     <div class="col">
-      <div class="form-group">
+      <div class="form-group shadow">
         <label for="highlight">highlight tweet</label>
-        <input type="text" class="form-control" id="highlight"  placeholder="type word">
+        <input
+          type="text"
+          class="form-control"
+          id="highlight"
+          placeholder="type word"
+          [(ngModel)]="tagword"
+        />
       </div>
+    </div>
 
+    <div class="col">
+      <div class="form-group shadow">
+        <label for="likes">likes less than</label>
+        <input
+          type="text"
+          class="form-control"
+          id="likes"
+          placeholder="type number of likes"
+          [(ngModel)]="numLikes"
+        />
+      </div>
     </div>
   </div>
 
@@ -16,39 +35,57 @@
   <div class="row p-2">
     <div class="col">
       <label>Date</label>
-
     </div>
     <div class="col">
-
       <label>Message</label>
-
     </div>
     <div class="col">
-
       <label>Likes</label>
     </div>
   </div>
 
-
-<div class="row" >
-  <label>test</label>
-</div>
-
   <!--collection of data-->
-  <div class="row p-2" *ngFor="let tweet of datacollection index as i" >
-    <div class="col">
-      <label>{{tweet.date}}</label>
 
+  <div class="row borderlines" *ngFor="let tweet of datacollection; index as i" [ngClass]="{ taggedTweet: checkWord(i) === true ,'taggedLikes': tweet.likes < numLikes }">
+    <div class="col" *ngIf="checkWord(i); else altDate">
+        <label>{{ tweet.date }}</label>
     </div>
-    <div class="col">
 
-      <label>{{tweet.text}}</label>
+    <ng-template #altDate >
+      <div class="col untaggedTweet borderleft">
+        <label>{{ tweet.date }}</label>
+      </div>
+    </ng-template>
 
+    <div class="col" *ngIf="checkWord(i); else altMessage">
+      <label>{{ tweet.text }}</label>
     </div>
-    <div class="col">
 
-      <label>{{tweet.likes}}</label>
+    <ng-template #altMessage >
+      <div class="col untaggedTweet">
+        <label>{{ tweet.text }}</label>
+
+      </div>
+    </ng-template>
+
+    <div class="col" *ngIf="checkWord(i); else altLikes">
+      <label>{{ tweet.likes }}</label>
     </div>
+    <ng-template #altLikes >
+      <div class="col untaggedTweet borderright">
+        <label>{{ tweet.likes }}</label>
+
+      </div>
+    </ng-template>
   </div>
-
 </div>
+
+
+
+<!-- <div *ngIf="toggelstyle;else test">
+<label>min første label</label>
+</div>
+
+<ng-template #test>
+  <label>en ny label</label>
+</ng-template> -->

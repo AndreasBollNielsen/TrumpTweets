@@ -10,6 +10,8 @@ import { TweetServiceService } from '../Services/tweet-service.service';
 export class MyTweetingComponent implements OnInit {
   datacollection: TweetModel[] = [];
   tagword: string = '';
+  toggelstyle:boolean = false;
+  numLikes:number =0;
   constructor(private tweetService: TweetServiceService) {}
 
   ngOnInit(): void {
@@ -18,8 +20,20 @@ export class MyTweetingComponent implements OnInit {
     });
   }
 
-  checkWord(): boolean {
-    console.log('i do something');
-    return true;
+toggleColor()
+{
+  this.toggelstyle = !this.toggelstyle;
+}
+
+  checkWord(index:number): boolean {
+    if(this.tagword !="")
+    {
+      let msg = this.datacollection[index].text;
+      return msg.includes(this.tagword);
+    }
+
+
+    return false;
+
   }
 }
